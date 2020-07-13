@@ -42,7 +42,7 @@ const HarvestPlan = () => {
               }}
             />
           </View>
-          <View>
+          <View style={globalStyles.textWrap}>
             <Text style={globalStyles.boxTitle}>Lokasi Panen</Text>
             <Text style={globalStyles.boxSubTitle}>
               Pilih lokasi di mana panen akan dilakukan
@@ -64,7 +64,7 @@ const HarvestPlan = () => {
               }
             />
           </View>
-          <View>
+          <View style={globalStyles.textWrap}>
             <Text style={globalStyles.boxTitle}>Mandor & Pemanen</Text>
             <Text style={globalStyles.boxSubTitle}>
               Menentukan mandor dan pemanen
@@ -86,7 +86,7 @@ const HarvestPlan = () => {
               }
             />
           </View>
-          <View>
+          <View style={globalStyles.textWrap}>
             <Text style={globalStyles.boxTitle}>Angkong Mekanis</Text>
             <Text style={globalStyles.boxSubTitle}>
               Menentukan kendaraan dan operator

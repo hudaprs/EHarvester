@@ -110,6 +110,10 @@ export const globalStyles = StyleSheet.create({
     fontSize: 12,
     fontFamily: "OpenSans-Regular",
   },
+  textWrap: {
+    flexDirection: "column",
+    flex: 0.9,
+  },
 
   // Badges
   badge: {

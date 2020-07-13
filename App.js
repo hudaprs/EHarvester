@@ -17,7 +17,7 @@ import Splash from "@screens/Splash"
 import RootStack from "@navigations/RootStack"
 
 const getFonts = () => {
-  Font.loadAsync({
+  return Font.loadAsync({
     "OpenSans-Regular": require("@fonts/OpenSans-Regular.ttf"),
     "OpenSans-Semibold": require("@fonts/OpenSans-Semibold.ttf"),
     "Poppins-Medium": require("@fonts/Poppins-Medium.otf"),
