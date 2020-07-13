@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   View,
   StyleSheet,
@@ -6,18 +6,18 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
-} from "react-native"
+} from "react-native";
 
 // SVG
-import HomeNotification from "@imgs/home/HomeNotification.svg"
-import SearchIcon from "@imgs/home/SearchIcon.svg"
+import HomeNotification from "@imgs/home/HomeNotification.svg";
+import SearchIcon from "@imgs/home/SearchIcon.svg";
 
 // Components
-import HomeSubMenu from "./HomeSubMenu"
-import HomeItem from "./HomeItem"
+import HomeSubMenu from "./HomeSubMenu";
+import HomeItem from "./HomeItem";
 
 // Global Styles
-import { globalStyles } from "@globalStyles/global"
+import { globalStyles } from "@globalStyles/global";
 
 const Home = ({ navigation }) => {
   return (
@@ -33,7 +33,7 @@ const Home = ({ navigation }) => {
             {/* Photo Profile */}
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("HarvestTab", {
+                navigation.navigate("PlanTab", {
                   screen: "Harvester",
                 })
               }
@@ -68,8 +68,8 @@ const Home = ({ navigation }) => {
         </View>
       </ScrollView>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   homeContainer: {
@@ -108,6 +108,6 @@ const styles = StyleSheet.create({
     borderRadius: 10 / 2,
     zIndex: 1,
   },
-})
+});
 
-export default Home
+export default Home;

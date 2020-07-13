@@ -1,12 +1,12 @@
-import React, { Fragment } from "react"
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import React, { Fragment } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 // Svg
-import ArrowRight from "@imgs/ArrowRight.svg"
-import MapMarkerIcon from "@imgs/home/MapMarkerIcon.svg"
-import UserItemIcon from "@imgs/home/UserItemIcon.svg"
+import ArrowRight from "@imgs/ArrowRight.svg";
+import MapMarkerIcon from "@imgs/home/MapMarkerIcon.svg";
+import UserItemIcon from "@imgs/home/UserItemIcon.svg";
 
-import { globalStyles } from "@globalStyles/global"
+import { globalStyles } from "@globalStyles/global";
 
 const HomeItem = ({ navigation }) => {
   return (
@@ -21,7 +21,7 @@ const HomeItem = ({ navigation }) => {
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("HarvestTab", {
+                navigation.navigate("PlanTab", {
                   screen: "HarvestPlan",
                 })
               }
@@ -44,8 +44,8 @@ const HomeItem = ({ navigation }) => {
         </View>
       </View>
     </Fragment>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   // Header
@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
   homeItemBodyIcon: {
     marginRight: 10,
   },
-})
+});
 
-export default HomeItem
+export default HomeItem;
