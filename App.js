@@ -1,21 +1,65 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler"
+import React, { useState, useEffect } from "react"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+// Expo
+import { AppLoading } from "expo"
+import * as Font from "expo-font"
+
+// Redux
+import { Provider } from "react-redux"
+import store from "@redux"
+import { autoLogin } from "@reduxActions/authActions"
+
+// Screens
+import Splash from "@screens/Splash"
+
+// Navigations
+import RootStack from "@navigations/RootStack"
+
+const getFonts = () => {
+  Font.loadAsync({
+    "OpenSans-Regular": require("@fonts/OpenSans-Regular.ttf"),
+    "OpenSans-Semibold": require("@fonts/OpenSans-Semibold.ttf"),
+    "Poppins-Medium": require("@fonts/Poppins-Medium.otf"),
+    "Poppins-Regular": require("@fonts/Poppins-Regular.otf"),
+    "Poppins-SemiBold": require("@fonts/Poppins-SemiBold.otf"),
+  })
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  const [isFontsLoaded, setIsFontsLoaded] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    store.dispatch(autoLogin())
+  }, [])
+
+  // Check the fonts is being fully loaded
+  if (isFontsLoaded) {
+    // Show the splash screen for one second
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+
+    if (isLoading) {
+      return <Splash />
+    } else {
+      // Return the actual screen
+      return (
+        <Provider store={store}>
+          <RootStack />
+        </Provider>
+      )
+    }
+  } else {
+    // Make application load the fonts first
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setIsFontsLoaded(true)}
+      />
+    )
+  }
+}
+
+export default App

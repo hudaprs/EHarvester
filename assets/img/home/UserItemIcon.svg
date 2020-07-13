@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>A580A0ED-21FC-414D-ABB8-3E85CDCD148A@1x</title>
+    <g id="mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-48.000000, -471.000000)">
+            <g id="Group-15" transform="translate(48.000000, 471.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="20" height="20"></rect>
+                <g id="user" transform="translate(3.000000, 2.000000)" fill="#407BFF" fill-rule="nonzero">
+                    <path d="M7.03121875,0 C4.704875,0 2.81246875,1.89240625 2.81246875,4.21875 C2.81246875,6.54509375 4.704875,8.4375 7.03121875,8.4375 C9.3575625,8.4375 11.2499688,6.54509375 11.2499688,4.21875 C11.2499688,1.89240625 9.3575625,0 7.03121875,0 Z" id="Path"></path>
+                    <path d="M13.98375,12.45875 C12.722625,10.5668125 10.6118438,9.4375 8.33859375,9.4375 L5.72384375,9.4375 C3.45059375,9.4375 1.33984375,10.5668125 0.07871875,12.45875 L-3.125e-05,12.5768438 L-3.125e-05,16 L14.0625,16 L14.0625,16 L14.0625,12.5768438 L13.98375,12.45875 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
