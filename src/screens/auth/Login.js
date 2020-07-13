@@ -24,59 +24,13 @@ import { globalStyles } from "@globalStyles/global"
 
 // Redux
 import { connect } from "react-redux"
-import { login } from "@reduxActions/authActions"
-import {
-  setModalVisibility,
-  setModalData,
-} from "@reduxActions/authModalActions"
+import { login, setUserData } from "@reduxActions/authActions"
 
-const Login = ({ login, setModalVisibility, setModalData }) => {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const otorityError = true
+const Login = ({ userData, login, setUserData, errorType, loading }) => {
+  const { username, password } = userData
 
   const loggedIn = () => {
-    // Uncomment this if you want to check otority error
-    // if (otorityError == true) {
-    //   setModalVisibility(true);
-    //   setModalData({
-    //     type: "invalidOtority",
-    //     message: "Perubahan Otorisasi",
-    //     messageTwo:
-    //       "Kamu login beda ofdeling & data akan dihapus. Yakin ingin melanjutkan?",
-    //   });
-    // }
-
-    // Simple credentials check
-    // This for testing only
-    if (!username || !password) {
-      setModalVisibility(true)
-      setModalData({ type: "invalidCreds", message: "Isi semua form" })
-    } else {
-      // Check if username and password is match.
-      if (username == "admin" && password == "admin") {
-        login({ username, password })
-      } else if (username != "admin") {
-        setModalVisibility(true)
-        setError("username")
-        setModalData({
-          type: "invalidUsername",
-          message: "Username Salah",
-          messageTwo: "Coba cek ulang Username kamu ya",
-        })
-      } else if (password != "admin") {
-        setModalVisibility(true)
-        setError("password")
-        setModalData({
-          type: "invalidPassword",
-          message: "Kata Sandi Salah",
-          messageTwo: "Coba cek ulang Kata Sandi kamu ya",
-        })
-      } else {
-        setModalVisibility(true)
-      }
-    }
+    login(userData)
   }
 
   return (
@@ -98,7 +52,7 @@ const Login = ({ login, setModalVisibility, setModalData }) => {
         <View style={globalStyles.mt4}>
           <View>
             {/* Username Icons */}
-            {error && error === "username" ? (
+            {errorType && errorType === "username" ? (
               <UsernameErrorIcon
                 style={globalStyles.inputIcon}
                 width={15}
@@ -110,19 +64,24 @@ const Login = ({ login, setModalVisibility, setModalData }) => {
             <TextInput
               placeholder='Username'
               placeholderTextColor='#233258'
-              onChangeText={(username) => setUsername(username)}
+              onChangeText={(username) =>
+                setUserData({ ...userData, username })
+              }
+              value={username}
               autoCapitalize='none'
               autoCorrect={false}
               style={[
                 globalStyles.input,
-                error && error === "username" ? globalStyles.inputError : null,
+                errorType && errorType === "username"
+                  ? globalStyles.inputError
+                  : null,
               ]}
             />
           </View>
 
           <View>
             {/* Icons */}
-            {error && error === "password" ? (
+            {errorType && errorType === "password" ? (
               <PasswordErrorIcon
                 style={globalStyles.inputIcon}
                 width={15}
@@ -135,19 +94,28 @@ const Login = ({ login, setModalVisibility, setModalData }) => {
               placeholder='Kata Sandi'
               placeholderTextColor='#233258'
               secureTextEntry={true}
-              onChangeText={(password) => setPassword(password)}
+              onChangeText={(password) =>
+                setUserData({ ...userData, password })
+              }
+              value={password}
               autoCapitalize='none'
               autoCorrect={false}
               style={[
                 globalStyles.input,
-                error === "password" ? globalStyles.inputError : null,
+                errorType && errorType === "password"
+                  ? globalStyles.inputError
+                  : null,
               ]}
             />
           </View>
 
           <Text style={globalStyles.mb2} />
 
-          <TouchableOpacity style={globalStyles.btn} onPress={loggedIn}>
+          <TouchableOpacity
+            style={[globalStyles.btn, loading ? globalStyles.btnLoading : null]}
+            onPress={loggedIn}
+            disabled={loading}
+          >
             <Text style={globalStyles.btnText}>Masuk</Text>
           </TouchableOpacity>
         </View>
@@ -184,4 +152,13 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect(null, { login, setModalVisibility, setModalData })(Login)
+const mapStateToProps = (state) => ({
+  userData: state.auth.userData,
+  errorType: state.auth.errorType,
+  loading: state.auth.loading,
+})
+
+export default connect(mapStateToProps, {
+  login,
+  setUserData,
+})(Login)

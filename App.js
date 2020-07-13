@@ -16,15 +16,14 @@ import Splash from "@screens/Splash"
 // Navigations
 import RootStack from "@navigations/RootStack"
 
-const getFonts = () => {
-  return Font.loadAsync({
+const getFonts = () =>
+  Font.loadAsync({
     "OpenSans-Regular": require("@fonts/OpenSans-Regular.ttf"),
     "OpenSans-Semibold": require("@fonts/OpenSans-Semibold.ttf"),
     "Poppins-Medium": require("@fonts/Poppins-Medium.otf"),
     "Poppins-Regular": require("@fonts/Poppins-Regular.otf"),
     "Poppins-SemiBold": require("@fonts/Poppins-SemiBold.otf"),
   })
-}
 
 const App = () => {
   const [isFontsLoaded, setIsFontsLoaded] = useState(false)
@@ -36,12 +35,12 @@ const App = () => {
 
   // Check the fonts is being fully loaded
   if (isFontsLoaded) {
-    // Show the splash screen for one second
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-
+    // Return splash screen
     if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1000)
+
       return <Splash />
     } else {
       // Return the actual screen

@@ -41,7 +41,7 @@ export const globalStyles = StyleSheet.create({
 
   // Buttons
   btn: {
-    backgroundColor: "#407BFF",
+    backgroundColor: "rgba(64, 123, 255, 1)",
     height: 40,
     borderRadius: 6,
   },
@@ -71,6 +71,9 @@ export const globalStyles = StyleSheet.create({
   },
   btnOutLineTextPrimary: {
     color: "#407BFF",
+  },
+  btnLoading: {
+    backgroundColor: "rgba(64, 123, 255, .5)",
   },
 
   // Boxes
