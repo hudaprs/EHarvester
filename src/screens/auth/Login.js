@@ -25,10 +25,12 @@ import { globalStyles } from "@globalStyles/global"
 // Redux
 import { connect } from "react-redux"
 import { login } from "@reduxActions/authActions"
+import {
+  setModalVisibility,
+  setModalData,
+} from "@reduxActions/authModalActions"
 
-const Login = ({ login }) => {
-  const [modalVisibility, setModalVisibility] = useState("")
-  const [modalData, setModalData] = useState("")
+const Login = ({ login, setModalVisibility, setModalData }) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
@@ -80,12 +82,8 @@ const Login = ({ login }) => {
   return (
     <SafeAreaView style={globalStyles.container}>
       <ScrollView>
-        {/* MOdals */}
-        <AuthModal
-          modalVisibility={modalVisibility}
-          setModalVisibility={setModalVisibility}
-          data={modalData}
-        />
+        {/* Auth Modal */}
+        <AuthModal />
 
         {/* Header */}
         <LandingHeader style={styles.loginImage} />
@@ -186,4 +184,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect(null, { login })(Login)
+export default connect(null, { login, setModalVisibility, setModalData })(Login)

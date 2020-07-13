@@ -20,15 +20,18 @@ let deviceWidth = Dimensions.get("window").width
 // Global Styles
 import { globalStyles } from "@globalStyles/global"
 
+// Redux
+import { connect } from "react-redux"
+import { setModalVisibility } from "@reduxActions/authModalActions"
+
 /**
  *
- * @param {modalVisibility} bool
- * @param {setModalVisibility} func
+ * @param {visibility} bool
  * @param {data} object
  */
-const AuthModal = ({ modalVisibility, setModalVisibility, data }) => {
+const AuthModal = ({ authModal: { visibility, data }, setModalVisibility }) => {
   return (
-    <Modal visible={modalVisibility} animationType='fade' transparent={true}>
+    <Modal visible={visibility} animationType='fade' transparent={true}>
       <View
         style={[styles.authModal, { backgroundColor: "rgba(0, 0, 0, .8)" }]}
       >
@@ -118,4 +121,8 @@ const styles = StyleSheet.create({
   },
 })
 
-export default AuthModal
+const mapStateToProps = (state) => ({
+  authModal: state.authModal,
+})
+
+export default connect(mapStateToProps, { setModalVisibility })(AuthModal)
