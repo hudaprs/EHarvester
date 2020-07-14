@@ -6,7 +6,7 @@ import {
   LOGIN_ERROR,
   LOGOUT,
   SET_ERROR_TYPE,
-  CLEAR_ERROR_TYPE,
+  CLEAR_ERROR_TYPE
 } from "@reduxTypes/authTypes"
 
 const initialState = {

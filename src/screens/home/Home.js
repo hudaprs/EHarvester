@@ -13,23 +13,38 @@ import HomeNotification from "@imgs/home/HomeNotification.svg";
 import SearchIcon from "@imgs/home/SearchIcon.svg";
 
 // Components
-import HomeSubMenu from "./HomeSubMenu";
-import HomeItem from "./HomeItem";
+import HomeSubMenu from "@components/homes/HomeSubMenu";
+import HomeItem from "@components/homes/HomeItem";
 
 // Global Styles
 import { globalStyles } from "@globalStyles/global";
 
 const Home = ({ navigation }) => {
+  const {
+    mt4
+  } = globalStyles
+
+  const { 
+    homeContainer,
+    homePadding,
+    homeImageBackground,
+    homeHeader,
+    homeHeaderIcon,
+    homeImage,
+    image,
+    redDotNotification
+  } = styles
+
   return (
-    <View style={styles.homeContainer}>
+    <View style={homeContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <ImageBackground
           source={require("@imgs/home/HomeBackgroundHeader.png")}
-          style={styles.homeImageBackground}
+          style={homeImageBackground}
           resizeMode={"stretch"}
         >
-          <View style={[styles.homeHeader, styles.homePadding]}>
+          <View style={[homeHeader, homePadding]}>
             {/* Photo Profile */}
             <TouchableOpacity
               onPress={() =>
@@ -40,29 +55,29 @@ const Home = ({ navigation }) => {
             >
               <Image
                 source={require("@imgs/home/ImageOne.png")}
-                style={styles.image}
+                style={image}
               />
             </TouchableOpacity>
 
             {/* HomeNotification Icon */}
-            <View style={styles.homeHeaderIcon}>
+            <View style={homeHeaderIcon}>
               <TouchableOpacity style={{ marginRight: 15 }}>
                 <SearchIcon />
               </TouchableOpacity>
               <TouchableOpacity>
-                <View style={styles.redDotNotification} />
+                <View style={redDotNotification} />
                 <HomeNotification />
               </TouchableOpacity>
             </View>
           </View>
 
           {/* Sub Menu */}
-          <View style={styles.homePadding}>
+          <View style={homePadding}>
             <HomeSubMenu />
           </View>
         </ImageBackground>
 
-        <View style={[styles.homePadding, globalStyles.mt4]}>
+        <View style={[homePadding, mt4]}>
           {/* Home Item */}
           <HomeItem navigation={navigation} />
         </View>

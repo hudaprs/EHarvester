@@ -9,15 +9,18 @@ import LandingBody from "@imgs/landing/LandingBody.svg"
 import { deviceSize } from "@globalStyles/global"
 
 const Landing = () => {
+  const { container, imageHeader } = styles 
+  const { deviceWidth, deviceHeight } = deviceSize
+
   return (
-    <View style={styles.container}>
+    <View style={container}>
       {/* Body Header */}
-      <LandingHeader style={styles.imageHeader} />
+      <LandingHeader style={imageHeader} />
 
       {/* Body Image */}
       <LandingBody
-        width={deviceSize.deviceWidth}
-        height={deviceSize.deviceHeight}
+        width={deviceWidth}
+        height={deviceHeight}
       />
     </View>
   )

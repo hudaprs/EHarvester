@@ -22,7 +22,7 @@ const getFonts = () =>
     "OpenSans-Semibold": require("@fonts/OpenSans-Semibold.ttf"),
     "Poppins-Medium": require("@fonts/Poppins-Medium.otf"),
     "Poppins-Regular": require("@fonts/Poppins-Regular.otf"),
-    "Poppins-SemiBold": require("@fonts/Poppins-SemiBold.otf"),
+    "Poppins-SemiBold": require("@fonts/Poppins-SemiBold.otf")
   })
 
 const App = () => {

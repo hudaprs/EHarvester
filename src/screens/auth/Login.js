@@ -29,37 +29,55 @@ import { login, setUserData } from "@reduxActions/authActions"
 const Login = ({ userData, login, setUserData, errorType, loading }) => {
   const { username, password } = userData
 
+  const { 
+    container,
+    mt4,
+    mb2,
+    input,
+    inputIcon,
+    inputError,
+    btn,
+    btnLoading,
+    btnText,
+  } = globalStyles
+
+  const {
+    loginTitle,
+    loginSubTitle,
+    loginFooterText
+  } = styles
+
   const loggedIn = () => {
     login(userData)
   }
 
   return (
-    <SafeAreaView style={globalStyles.container}>
+    <SafeAreaView style={container}>
       <ScrollView>
         {/* Auth Modal */}
         <AuthModal />
 
         {/* Header */}
-        <LandingHeader style={styles.loginImage} />
+        <LandingHeader />
 
         {/* Body */}
-        <Text style={styles.loginTitle}>Masuk</Text>
-        <Text style={styles.loginSubTitle}>
+        <Text style={loginTitle}>Masuk</Text>
+        <Text style={loginSubTitle}>
           Silahkan isi Username dan Kata Sandi anda
         </Text>
 
         {/* Forms */}
-        <View style={globalStyles.mt4}>
+        <View style={mt4}>
           <View>
             {/* Username Icons */}
             {errorType && errorType === "username" ? (
               <UsernameErrorIcon
-                style={globalStyles.inputIcon}
+                style={inputIcon}
                 width={15}
                 height={15}
               />
             ) : (
-              <Username style={globalStyles.inputIcon} width={15} height={15} />
+              <Username style={inputIcon} width={15} height={15} />
             )}
             <TextInput
               placeholder='Username'
@@ -71,9 +89,9 @@ const Login = ({ userData, login, setUserData, errorType, loading }) => {
               autoCapitalize='none'
               autoCorrect={false}
               style={[
-                globalStyles.input,
+                input,
                 errorType && errorType === "username"
-                  ? globalStyles.inputError
+                  ? inputError
                   : null,
               ]}
             />
@@ -83,12 +101,12 @@ const Login = ({ userData, login, setUserData, errorType, loading }) => {
             {/* Icons */}
             {errorType && errorType === "password" ? (
               <PasswordErrorIcon
-                style={globalStyles.inputIcon}
+                style={inputIcon}
                 width={15}
                 height={15}
               />
             ) : (
-              <Password style={globalStyles.inputIcon} width={15} height={15} />
+              <Password style={inputIcon} width={15} height={15} />
             )}
             <TextInput
               placeholder='Kata Sandi'
@@ -101,30 +119,30 @@ const Login = ({ userData, login, setUserData, errorType, loading }) => {
               autoCapitalize='none'
               autoCorrect={false}
               style={[
-                globalStyles.input,
+                input,
                 errorType && errorType === "password"
-                  ? globalStyles.inputError
+                  ? inputError
                   : null,
               ]}
             />
           </View>
 
-          <Text style={globalStyles.mb2} />
+          <Text style={mb2} />
 
           <TouchableOpacity
-            style={[globalStyles.btn, loading ? globalStyles.btnLoading : null]}
+            style={[btn, loading ? btnLoading : null]}
             onPress={loggedIn}
             disabled={loading}
           >
-            <Text style={globalStyles.btnText}>Masuk</Text>
+            <Text style={btnText}>Masuk</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
 
       {/* Footer */}
-      <View style={styles.loginFooter}>
-        <Text style={styles.loginFooterText}>APK Version 1.0.0</Text>
-        <Text style={styles.loginFooterText}>
+      <View>
+        <Text style={loginFooterText}>APK Version 1.0.0</Text>
+        <Text style={loginFooterText}>
           (C) 2020. PT. Triputra Agro Persada
         </Text>
       </View>

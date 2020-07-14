@@ -9,14 +9,28 @@ import UserItemIcon from "@imgs/home/UserItemIcon.svg";
 import { globalStyles } from "@globalStyles/global";
 
 const HomeItem = ({ navigation }) => {
+  const {
+    box
+  } = globalStyles
+
+  const {
+    homeItemHeader,
+    homeItemTitle,
+    homeItemSubTitle,
+    homeItemBody,
+    homeItemBodyText,
+    homeItemBodyContent,
+    homeItemBodyIcon
+  } = styles
+
   return (
     <Fragment>
-      <View style={globalStyles.box}>
+      <View style={box}>
         {/* Header */}
-        <View style={styles.homeItemHeader}>
+        <View style={homeItemHeader}>
           <View>
-            <Text style={styles.homeItemTitle}>Rencana Panen</Text>
-            <Text style={styles.homeItemSubTitle}>Hari Ini</Text>
+            <Text style={homeItemTitle}>Rencana Panen</Text>
+            <Text style={homeItemSubTitle}>Hari Ini</Text>
           </View>
           <View>
             <TouchableOpacity
@@ -32,14 +46,14 @@ const HomeItem = ({ navigation }) => {
         </View>
 
         {/* Body */}
-        <View style={styles.homeItemBody}>
-          <View style={styles.homeItemBodyContent}>
-            <MapMarkerIcon size={15} style={styles.homeItemBodyIcon} />
-            <Text style={styles.homeItemBodyText}>Blok D20</Text>
+        <View style={homeItemBody}>
+          <View style={homeItemBodyContent}>
+            <MapMarkerIcon size={15} style={homeItemBodyIcon} />
+            <Text style={homeItemBodyText}>Blok D20</Text>
           </View>
-          <View style={styles.homeItemBodyContent}>
-            <UserItemIcon size={15} style={styles.homeItemBodyIcon} />
-            <Text style={styles.homeItemBodyText}>Artem Sazonov</Text>
+          <View style={homeItemBodyContent}>
+            <UserItemIcon size={15} style={homeItemBodyIcon} />
+            <Text style={homeItemBodyText}>Artem Sazonov</Text>
           </View>
         </View>
       </View>

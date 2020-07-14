@@ -11,36 +11,47 @@ import PickupIcon from "@imgs/home/PickupIcon.svg"
 import { globalStyles } from "@globalStyles/global"
 
 const HomeSubMenu = () => {
+  const {
+    box
+  } = globalStyles
+
+  const {
+    homeSubMenuContainer,
+    homeSubMenuItem,
+    homeSubMenuIcon,
+    homeSubMenuTitle
+  } = styles
+
   return (
     <Fragment>
-      <View style={[globalStyles.box, styles.homeSubMenuContainer]}>
-        <View style={styles.homeSubMenuItem}>
+      <View style={[globalStyles.box, homeSubMenuContainer]}>
+        <View style={homeSubMenuItem}>
           <TouchableOpacity>
-            <UserIcon name='user' style={styles.homeSubMenuIcon} size={24} />
+            <UserIcon name='user' style={homeSubMenuIcon} size={24} />
           </TouchableOpacity>
-          <Text style={styles.homeSubMenuTitle}>Summary{"\n"}Pemanen</Text>
+          <Text style={homeSubMenuTitle}>Summary{"\n"}Pemanen</Text>
         </View>
-        <View style={styles.homeSubMenuItem}>
+        <View style={homeSubMenuItem}>
           <TouchableOpacity>
-            <MoneyIcon name='dollar' style={styles.homeSubMenuIcon} size={24} />
+            <MoneyIcon name='dollar' style={homeSubMenuIcon} size={24} />
           </TouchableOpacity>
-          <Text style={styles.homeSubMenuTitle}>Denda{"\n"}Panen</Text>
+          <Text style={homeSubMenuTitle}>Denda{"\n"}Panen</Text>
         </View>
-        <View style={styles.homeSubMenuItem}>
+        <View style={homeSubMenuItem}>
           <TouchableOpacity>
-            <SoilIcon name='list' style={styles.homeSubMenuIcon} size={24} />
+            <SoilIcon name='list' style={homeSubMenuIcon} size={24} />
           </TouchableOpacity>
-          <Text style={styles.homeSubMenuTitle}>Luasan{"\n"}Wilayah</Text>
+          <Text style={homeSubMenuTitle}>Luasan{"\n"}Wilayah</Text>
         </View>
-        <View style={styles.homeSubMenuItem}>
+        <View style={homeSubMenuItem}>
           <TouchableOpacity>
             <PickupIcon
               name='list-alt'
-              style={styles.homeSubMenuIcon}
+              style={homeSubMenuIcon}
               size={24}
             />
           </TouchableOpacity>
-          <Text style={styles.homeSubMenuTitle}>Angkut{"\n"}Buah</Text>
+          <Text style={homeSubMenuTitle}>Angkut{"\n"}Buah</Text>
         </View>
       </View>
     </Fragment>

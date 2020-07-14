@@ -3,9 +3,12 @@ import {
   SET_USER_DATA,
   CLEAR_USER_DATA,
   LOGIN,
-  SIGN_OUT,
+  LOGOUT,
   LOGIN_ERROR,
+  CLEAR_ERROR_TYPE,
+  SET_ERROR_TYPE
 } from "@reduxTypes/authTypes"
+import { CLEAR_MODAL_DATA } from '@reduxTypes/authModalTypes'
 import axios from "axios"
 import AsyncStorage from "@react-native-community/async-storage"
 
@@ -14,7 +17,6 @@ import {
   setModalVisibility,
   setModalData,
 } from "@reduxActions/authModalActions"
-import { SET_ERROR_TYPE, CLEAR_ERROR_TYPE } from "../types/authTypes"
 
 // Set Loading
 export const setLoading = () => (dispatch) => {
@@ -81,6 +83,7 @@ export const login = (formData) => async (dispatch) => {
         dispatch({ type: LOGIN, payload: { token } })
         dispatch({ type: CLEAR_USER_DATA })
         dispatch({ type: CLEAR_ERROR_TYPE })
+        dispatch({ type: CLEAR_MODAL_DATA })
       } catch (err) {
         dispatch({ type: LOGIN_ERROR })
       }
@@ -116,9 +119,13 @@ export const login = (formData) => async (dispatch) => {
 export const signOut = () => async (dispatch) => {
   dispatch(setLoading())
   try {
-    await AsyncStorage.removeItem("token")
-
-    dispatch({ type: SIGN_OUT })
+    const token = await AsyncStorage.getItem('token')
+    if(token) {
+      await AsyncStorage.removeItem('token')
+      dispatch({ type: LOGOUT })
+    } else {
+      dispatch({ type: LOGIN_ERROR })
+    }
   } catch (err) {
     dispatch({ type: LOGIN_ERROR })
   }
