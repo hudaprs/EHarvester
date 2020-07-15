@@ -10,27 +10,42 @@ const HarvestPlan = () => {
   const [plans, setPlans] = useState({
     lokasiPanen: false,
     mandorDanPemanen: false,
-    angkongMekanis: false,
+    angkongMekanis: false
   })
   const { lokasiPanen, mandorDanPemanen, angkongMekanis } = plans
 
-  const done = () => {
+  const {
+    container,
+    textSecondary,
+    mt2,
+    mt4,
+    boxPrimary,
+    boxBody,
+    boxCheckBoxInput,
+    textWrap,
+    boxTitle,
+    boxSubTitle,
+    btn,
+    btnText
+  } = globalStyles
+
+  const buttonPress = () => {
     console.log(plans)
   }
 
   return (
-    <View style={globalStyles.container}>
+    <View style={container}>
       {/* Title */}
-      <Text style={[globalStyles.textSecondary, { opacity: 0.5 }]}>
+      <Text style={[textSecondary, { opacity: 0.5 }]}>
         Kamu harus menentukan rencana sesuai dengan item di bawah ini
       </Text>
 
-      <View style={globalStyles.mt2} />
+      <View style={mt2} />
 
       {/* Boxes */}
-      <View style={globalStyles.boxPrimary}>
-        <View style={globalStyles.boxBody}>
-          <View style={globalStyles.boxCheckBoxInput}>
+      <View style={boxPrimary}>
+        <View style={boxBody}>
+          <View style={boxCheckBoxInput}>
             <CheckBox
               checkedIcon='dot-circle-o'
               uncheckedIcon='circle-o'
@@ -42,17 +57,17 @@ const HarvestPlan = () => {
               }}
             />
           </View>
-          <View style={globalStyles.textWrap}>
-            <Text style={globalStyles.boxTitle}>Lokasi Panen</Text>
-            <Text style={globalStyles.boxSubTitle}>
+          <View style={textWrap}>
+            <Text style={boxTitle}>Lokasi Panen</Text>
+            <Text style={boxSubTitle}>
               Pilih lokasi di mana panen akan dilakukan
             </Text>
           </View>
         </View>
       </View>
-      <View style={globalStyles.boxPrimary}>
-        <View style={globalStyles.boxBody}>
-          <View style={globalStyles.boxCheckBoxInput}>
+      <View style={boxPrimary}>
+        <View style={boxBody}>
+          <View style={boxCheckBoxInput}>
             <CheckBox
               checkedIcon='dot-circle-o'
               uncheckedIcon='circle-o'
@@ -64,17 +79,15 @@ const HarvestPlan = () => {
               }
             />
           </View>
-          <View style={globalStyles.textWrap}>
-            <Text style={globalStyles.boxTitle}>Mandor & Pemanen</Text>
-            <Text style={globalStyles.boxSubTitle}>
-              Menentukan mandor dan pemanen
-            </Text>
+          <View style={textWrap}>
+            <Text style={boxTitle}>Mandor & Pemanen</Text>
+            <Text style={boxSubTitle}>Menentukan mandor dan pemanen</Text>
           </View>
         </View>
       </View>
-      <View style={globalStyles.boxPrimary}>
-        <View style={globalStyles.boxBody}>
-          <View style={globalStyles.boxCheckBoxInput}>
+      <View style={boxPrimary}>
+        <View style={boxBody}>
+          <View style={boxCheckBoxInput}>
             <CheckBox
               checkedIcon='dot-circle-o'
               uncheckedIcon='circle-o'
@@ -86,19 +99,17 @@ const HarvestPlan = () => {
               }
             />
           </View>
-          <View style={globalStyles.textWrap}>
-            <Text style={globalStyles.boxTitle}>Angkong Mekanis</Text>
-            <Text style={globalStyles.boxSubTitle}>
-              Menentukan kendaraan dan operator
-            </Text>
+          <View style={textWrap}>
+            <Text style={boxTitle}>Angkong Mekanis</Text>
+            <Text style={boxSubTitle}>Menentukan kendaraan dan operator</Text>
           </View>
         </View>
       </View>
 
-      <View style={globalStyles.mt4} />
+      <View style={mt4} />
 
-      <TouchableOpacity style={globalStyles.btn} onPress={done}>
-        <Text style={globalStyles.btnText}>Selesai</Text>
+      <TouchableOpacity style={btn} onPress={buttonPress}>
+        <Text style={btnText}>Selesai</Text>
       </TouchableOpacity>
     </View>
   )
