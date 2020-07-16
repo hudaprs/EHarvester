@@ -1,16 +1,20 @@
-import React, { useState } from "react"
-import { View, Text } from "react-native"
-import { CheckBox } from "react-native-elements"
+import React, { useState } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import { CheckBox } from 'react-native-elements'
+
+// Componnets
+import PoppinsMedium from '@components/text/PoppinsMedium'
+import PoppinsSemiBold from '@components/text/PoppinsSemiBold'
+import PoppinsRegular from '@components/text/PoppinsRegular'
 
 // Global Styles
-import { globalStyles } from "@globalStyles/global"
-import { TouchableOpacity } from "react-native-gesture-handler"
+import { globalStyles } from '@globalStyles/global'
 
 const HarvestPlan = () => {
   const [plans, setPlans] = useState({
     lokasiPanen: false,
     mandorDanPemanen: false,
-    angkongMekanis: false
+    angkongMekanis: false,
   })
   const { lokasiPanen, mandorDanPemanen, angkongMekanis } = plans
 
@@ -26,7 +30,7 @@ const HarvestPlan = () => {
     boxTitle,
     boxSubTitle,
     btn,
-    btnText
+    btnText,
   } = globalStyles
 
   const buttonPress = () => {
@@ -36,9 +40,9 @@ const HarvestPlan = () => {
   return (
     <View style={container}>
       {/* Title */}
-      <Text style={[textSecondary, { opacity: 0.5 }]}>
+      <PoppinsMedium style={[textSecondary, { opacity: 0.5 }]}>
         Kamu harus menentukan rencana sesuai dengan item di bawah ini
-      </Text>
+      </PoppinsMedium>
 
       <View style={mt2} />
 
@@ -47,10 +51,10 @@ const HarvestPlan = () => {
         <View style={boxBody}>
           <View style={boxCheckBoxInput}>
             <CheckBox
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
-              uncheckedColor='#407BFF'
-              checkedColor='#407BFF'
+              checkedIcon="dot-circle-o"
+              uncheckedIcon="circle-o"
+              uncheckedColor="#407BFF"
+              checkedColor="#407BFF"
               checked={lokasiPanen}
               onPress={() => {
                 setPlans({ ...plans, lokasiPanen: !lokasiPanen })
@@ -58,10 +62,10 @@ const HarvestPlan = () => {
             />
           </View>
           <View style={textWrap}>
-            <Text style={boxTitle}>Lokasi Panen</Text>
-            <Text style={boxSubTitle}>
+            <PoppinsSemiBold style={boxTitle}>Lokasi Panen</PoppinsSemiBold>
+            <PoppinsRegular style={boxSubTitle}>
               Pilih lokasi di mana panen akan dilakukan
-            </Text>
+            </PoppinsRegular>
           </View>
         </View>
       </View>
@@ -69,10 +73,10 @@ const HarvestPlan = () => {
         <View style={boxBody}>
           <View style={boxCheckBoxInput}>
             <CheckBox
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
-              uncheckedColor='#407BFF'
-              checkedColor='#407BFF'
+              checkedIcon="dot-circle-o"
+              uncheckedIcon="circle-o"
+              uncheckedColor="#407BFF"
+              checkedColor="#407BFF"
               checked={mandorDanPemanen}
               onPress={() =>
                 setPlans({ ...plans, mandorDanPemanen: !mandorDanPemanen })
@@ -80,8 +84,10 @@ const HarvestPlan = () => {
             />
           </View>
           <View style={textWrap}>
-            <Text style={boxTitle}>Mandor & Pemanen</Text>
-            <Text style={boxSubTitle}>Menentukan mandor dan pemanen</Text>
+            <PoppinsSemiBold style={boxTitle}>Mandor & Pemanen</PoppinsSemiBold>
+            <PoppinsRegular style={boxSubTitle}>
+              Menentukan mandor dan pemanen
+            </PoppinsRegular>
           </View>
         </View>
       </View>
@@ -89,10 +95,10 @@ const HarvestPlan = () => {
         <View style={boxBody}>
           <View style={boxCheckBoxInput}>
             <CheckBox
-              checkedIcon='dot-circle-o'
-              uncheckedIcon='circle-o'
-              uncheckedColor='#407BFF'
-              checkedColor='#407BFF'
+              checkedIcon="dot-circle-o"
+              uncheckedIcon="circle-o"
+              uncheckedColor="#407BFF"
+              checkedColor="#407BFF"
               checked={plans.angkongMekanis}
               onPress={() =>
                 setPlans({ ...plans, angkongMekanis: !angkongMekanis })
@@ -100,8 +106,10 @@ const HarvestPlan = () => {
             />
           </View>
           <View style={textWrap}>
-            <Text style={boxTitle}>Angkong Mekanis</Text>
-            <Text style={boxSubTitle}>Menentukan kendaraan dan operator</Text>
+            <PoppinsSemiBold style={boxTitle}>Angkong Mekanis</PoppinsSemiBold>
+            <PoppinsRegular style={boxSubTitle}>
+              Menentukan kendaraan dan operator
+            </PoppinsRegular>
           </View>
         </View>
       </View>

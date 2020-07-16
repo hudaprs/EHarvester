@@ -1,17 +1,19 @@
-import React, { Fragment } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { Fragment } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 // Svg
-import ArrowRight from "@imgs/ArrowRight.svg";
-import MapMarkerIcon from "@imgs/home/MapMarkerIcon.svg";
-import UserItemIcon from "@imgs/home/UserItemIcon.svg";
+import ArrowRight from '@imgs/ArrowRight.svg'
+import MapMarkerIcon from '@imgs/home/MapMarkerIcon.svg'
+import UserItemIcon from '@imgs/home/UserItemIcon.svg'
 
-import { globalStyles } from "@globalStyles/global";
+// Components
+import PoppinsSemiBold from '@components/text/PoppinsSemiBold'
+import PoppinsMedium from '@components/text/PoppinsMedium'
+
+import { globalStyles } from '@globalStyles/global'
 
 const HomeItem = ({ navigation }) => {
-  const {
-    box
-  } = globalStyles
+  const { box } = globalStyles
 
   const {
     homeItemHeader,
@@ -20,7 +22,7 @@ const HomeItem = ({ navigation }) => {
     homeItemBody,
     homeItemBodyText,
     homeItemBodyContent,
-    homeItemBodyIcon
+    homeItemBodyIcon,
   } = styles
 
   return (
@@ -29,14 +31,16 @@ const HomeItem = ({ navigation }) => {
         {/* Header */}
         <View style={homeItemHeader}>
           <View>
-            <Text style={homeItemTitle}>Rencana Panen</Text>
-            <Text style={homeItemSubTitle}>Hari Ini</Text>
+            <PoppinsSemiBold style={homeItemTitle}>
+              Rencana Panen
+            </PoppinsSemiBold>
+            <PoppinsSemiBold style={homeItemSubTitle}>Hari Ini</PoppinsSemiBold>
           </View>
           <View>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("PlanTab", {
-                  screen: "HarvestPlan",
+                navigation.navigate('PlanTab', {
+                  screen: 'HarvestPlan',
                 })
               }
             >
@@ -49,32 +53,32 @@ const HomeItem = ({ navigation }) => {
         <View style={homeItemBody}>
           <View style={homeItemBodyContent}>
             <MapMarkerIcon size={15} style={homeItemBodyIcon} />
-            <Text style={homeItemBodyText}>Blok D20</Text>
+            <PoppinsMedium style={homeItemBodyText}>Blok D20</PoppinsMedium>
           </View>
           <View style={homeItemBodyContent}>
             <UserItemIcon size={15} style={homeItemBodyIcon} />
-            <Text style={homeItemBodyText}>Artem Sazonov</Text>
+            <PoppinsMedium style={homeItemBodyText}>
+              Artem Sazonov
+            </PoppinsMedium>
           </View>
         </View>
       </View>
     </Fragment>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   // Header
   homeItemHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   homeItemTitle: {
     fontSize: 14,
-    fontFamily: "Poppins-SemiBold",
-    color: "#626D87",
+    color: '#407BFF',
   },
   homeItemSubTitle: {
-    fontFamily: "Poppins-SemiBold",
-    color: "#233258",
+    color: '#233258',
     opacity: 0.4,
     fontSize: 12,
   },
@@ -85,16 +89,15 @@ const styles = StyleSheet.create({
   },
   homeItemBodyText: {
     fontSize: 12,
-    color: "#626D87",
-    fontFamily: "Poppins-SemiBold",
+    color: '#233258',
   },
   homeItemBodyContent: {
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   homeItemBodyIcon: {
     marginRight: 10,
   },
-});
+})
 
-export default HomeItem;
+export default HomeItem

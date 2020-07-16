@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -6,20 +6,29 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  TouchableOpacity
-} from "react-native"
-import { CheckBox } from "react-native-elements"
+  TouchableOpacity,
+} from 'react-native'
+import { CheckBox } from 'react-native-elements'
 
 // Icons
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome } from '@expo/vector-icons'
+
+// Componnets
+import PoppinsMedium from '@components/text/PoppinsMedium'
+import PoppinsSemiBold from '@components/text/PoppinsSemiBold'
+import PoppinsRegular from '@components/text/PoppinsRegular'
+
+// Svg
+import AddIcon from '@imgs/harvester/AddIcon'
+import PlusIcon from '@imgs/PlusIcon'
 
 // Global Styles
-import { globalStyles } from "@globalStyles/global"
+import { globalStyles } from '@globalStyles/global'
 
 const Harvester = () => {
   const [harvesters, setHarvesters] = useState({
     one: false,
-    two: false
+    two: false,
   })
 
   const { one, two } = harvesters
@@ -40,7 +49,7 @@ const Harvester = () => {
     badge,
     badgePrimary,
     btn,
-    btnText
+    btnText,
   } = globalStyles
 
   const {
@@ -52,8 +61,7 @@ const Harvester = () => {
     harvesterMenuTitle,
     harvesterMenuSubTitle,
     addHarvest,
-    addIcon,
-    image
+    image,
   } = styles
 
   const submit = () => {
@@ -72,12 +80,16 @@ const Harvester = () => {
         {/* Harvester Header */}
         <View style={harvesterHeader}>
           <View>
-            <Image source={require("@imgs/home/ImageOne.png")} style={image} />
+            <Image source={require('@imgs/home/ImageOne.png')} style={image} />
           </View>
           <View>
-            <Text style={harvesterRole}>Mandor Panen</Text>
-            <Text style={harvesterName}>Débora Barbosa</Text>
-            <Text style={harvesterCode}>41/4121/413/3920</Text>
+            <PoppinsRegular style={harvesterRole}>Mandor Panen</PoppinsRegular>
+            <PoppinsSemiBold style={harvesterName}>
+              Débora Barbosa
+            </PoppinsSemiBold>
+            <PoppinsSemiBold style={harvesterCode}>
+              41/4121/413/3920
+            </PoppinsSemiBold>
           </View>
         </View>
 
@@ -86,20 +98,19 @@ const Harvester = () => {
           {/* Harvester Menu */}
           <View style={harvesterMenu}>
             <View>
-              <Text style={harvesterMenuTitle}>Pilih Pemanen</Text>
-              <Text style={harvesterMenuSubTitle}>2 Pemanen</Text>
+              <PoppinsSemiBold style={harvesterMenuTitle}>
+                Pilih Pemanen
+              </PoppinsSemiBold>
+              <PoppinsRegular style={harvesterMenuSubTitle}>
+                2 Pemanen
+              </PoppinsRegular>
             </View>
             <View>
               <TouchableOpacity style={[btnOutLine, btnOutLinePrimary]}>
-                <FontAwesome
-                  name='plus'
-                  size={20}
-                  color={"#407BFF"}
-                  style={{ marginRight: 10 }}
-                />
-                <Text style={[btnOutLineText, btnOutLineTextPrimary]}>
+                <PlusIcon style={{ marginRight: 10, marginBottom: 3 }} />
+                <PoppinsRegular style={[btnOutLineText, btnOutLineTextPrimary]}>
                   Tambah Pemanen
-                </Text>
+                </PoppinsRegular>
               </TouchableOpacity>
             </View>
           </View>
@@ -110,26 +121,26 @@ const Harvester = () => {
               <View style={boxBody}>
                 <View style={boxCheckBoxInput}>
                   <CheckBox
-                    checkedIcon='dot-circle-o'
-                    uncheckedIcon='circle-o'
-                    uncheckedColor='#407BFF'
-                    checkedColor='#407BFF'
+                    checkedIcon="dot-circle-o"
+                    uncheckedIcon="circle-o"
+                    uncheckedColor="#407BFF"
+                    checkedColor="#407BFF"
                     checked={one}
                     onPress={() => setHarvesters({ ...harvesters, one: !one })}
                   />
                 </View>
                 <View>
-                  <Text style={[badge, badgePrimary]}>Pinjam Pemanen</Text>
-                  <Text style={boxTitle}>Qiu Xun</Text>
-                  <Text style={boxSubTitle}>41/4121/413/454</Text>
+                  <PoppinsMedium style={[badge, badgePrimary]}>
+                    Pinjam Pemanen
+                  </PoppinsMedium>
+                  <PoppinsSemiBold style={boxTitle}>Qiu Xun</PoppinsSemiBold>
+                  <PoppinsRegular style={boxSubTitle}>
+                    41/4121/413/454
+                  </PoppinsRegular>
                 </View>
                 <View style={addHarvest}>
-                  <TouchableOpacity style={addIcon}>
-                    <FontAwesome
-                      name='plus'
-                      size={10}
-                      style={{ color: "#fff" }}
-                    />
+                  <TouchableOpacity>
+                    <AddIcon />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -139,25 +150,25 @@ const Harvester = () => {
               <View style={boxBody}>
                 <View style={boxCheckBoxInput}>
                   <CheckBox
-                    checkedIcon='dot-circle-o'
-                    uncheckedIcon='circle-o'
-                    uncheckedColor='#407BFF'
-                    checkedColor='#407BFF'
+                    checkedIcon="dot-circle-o"
+                    uncheckedIcon="circle-o"
+                    uncheckedColor="#407BFF"
+                    checkedColor="#407BFF"
                     checked={two}
                     onPress={() => setHarvesters({ ...harvesters, two: !two })}
                   />
                 </View>
                 <View>
-                  <Text style={boxTitle}>Tongbang Jun-Seo</Text>
-                  <Text style={boxSubTitle}>41/4121/413/454</Text>
+                  <PoppinsSemiBold style={boxTitle}>
+                    Tongbang Jun-Seo
+                  </PoppinsSemiBold>
+                  <PoppinsRegular style={boxSubTitle}>
+                    41/4121/413/454
+                  </PoppinsRegular>
                 </View>
                 <View style={addHarvest}>
-                  <TouchableOpacity style={addIcon}>
-                    <FontAwesome
-                      name='plus'
-                      size={10}
-                      style={{ color: "#fff" }}
-                    />
+                  <TouchableOpacity>
+                    <AddIcon />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -176,57 +187,49 @@ const Harvester = () => {
 const styles = StyleSheet.create({
   // Headers
   harvesterHeader: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 2,
-    marginRight: 20
+    marginRight: 20,
   },
   harvesterRole: {
-    fontFamily: "Poppins-Regular",
-    color: "#626D87",
-    fontSize: 10
+    color: '#626D87',
+    fontSize: 10,
   },
   harvesterName: {
-    fontFamily: "Poppins-SemiBold",
-    color: "#407BFF",
-    fontSize: 18
+    fontFamily: 'Poppins-SemiBold',
+    color: '#407BFF',
+    fontSize: 18,
   },
   harvesterCode: {
-    fontFamily: "Poppins-Medium",
-    color: "#626D87",
-    fontSize: 12
+    fontFamily: 'Poppins-Medium',
+    color: '#626D87',
+    fontSize: 12,
   },
 
   // Harvester Menu
   harvesterMenu: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   harvesterMenuTitle: {
-    color: "#626D87",
-    fontFamily: "Poppins-SemiBold",
-    fontSize: 14
+    color: '#626D87',
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 14,
   },
   harvesterMenuSubTitle: {
-    color: "#626D87",
-    fontFamily: "Poppins-Regular",
-    fontSize: 12
+    color: '#626D87',
+    fontFamily: 'Poppins-Regular',
+    fontSize: 12,
   },
 
-  // Harvester
   addHarvest: {
-    marginLeft: "auto"
+    marginLeft: 'auto',
   },
-  addIcon: {
-    backgroundColor: "#F9686A",
-    color: "#fff",
-    borderRadius: 2.5,
-    padding: 5
-  }
 })
 
 export default Harvester

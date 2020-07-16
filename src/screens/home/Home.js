@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   StyleSheet,
@@ -6,60 +6,57 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
-} from "react-native";
+} from 'react-native';
 
 // SVG
-import HomeNotification from "@imgs/home/HomeNotification.svg";
-import SearchIcon from "@imgs/home/SearchIcon.svg";
+import HomeNotification from '@imgs/home/HomeNotification.svg';
+import SearchIcon from '@imgs/home/SearchIcon.svg';
 
 // Components
-import HomeSubMenu from "@components/homes/HomeSubMenu";
-import HomeItem from "@components/homes/HomeItem";
+import HomeSubMenu from '@components/home/HomeSubMenu';
+import HomeItem from '@components/home/HomeItem';
 
 // Global Styles
-import { globalStyles } from "@globalStyles/global";
+import { globalStyles } from '@globalStyles/global';
 
 const Home = ({ navigation }) => {
-  const {
-    mt4
-  } = globalStyles
+  const { mt4 } = globalStyles;
 
-  const { 
+  const {
     homeContainer,
     homePadding,
     homeImageBackground,
     homeHeader,
     homeHeaderIcon,
-    homeImage,
     image,
-    redDotNotification
-  } = styles
+    redDotNotification,
+  } = styles;
 
   return (
     <View style={homeContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <ImageBackground
-          source={require("@imgs/home/HomeBackgroundHeader.png")}
+          source={require('@imgs/home/HomeBackgroundHeader.png')}
           style={homeImageBackground}
-          resizeMode={"stretch"}
+          resizeMode={'stretch'}
         >
           <View style={[homeHeader, homePadding]}>
             {/* Photo Profile */}
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("PlanTab", {
-                  screen: "Harvester",
+                navigation.navigate('PlanTab', {
+                  screen: 'Harvester',
                 })
               }
             >
               <Image
-                source={require("@imgs/home/ImageOne.png")}
+                source={require('@imgs/home/ImageOne.png')}
                 style={image}
               />
             </TouchableOpacity>
 
-            {/* HomeNotification Icon */}
+            {/* Header Right Icon */}
             <View style={homeHeaderIcon}>
               <TouchableOpacity style={{ marginRight: 15 }}>
                 <SearchIcon />
@@ -88,7 +85,7 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   homeContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     flex: 1,
   },
   homePadding: {
@@ -98,16 +95,13 @@ const styles = StyleSheet.create({
     height: 172,
   },
   homeHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   homeHeaderIcon: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  homeImage: {
-    marginTop: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   image: {
     borderRadius: 12,
@@ -115,8 +109,8 @@ const styles = StyleSheet.create({
     height: 50,
   },
   redDotNotification: {
-    backgroundColor: "#F9686A",
-    position: "absolute",
+    backgroundColor: '#F9686A',
+    position: 'absolute',
     right: 1,
     width: 10,
     height: 10,

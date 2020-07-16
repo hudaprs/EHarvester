@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import React from 'react'
+import { StyleSheet, Dimensions } from 'react-native'
 
 // SVG
-import ArrowLeft from '@imgs/ArrowLeft.svg';
+import ArrowLeft from '@imgs/ArrowLeft.svg'
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -63,7 +63,6 @@ export const globalStyles = StyleSheet.create({
   btnOutLineText: {
     color: '#000',
     fontSize: 12,
-    fontFamily: 'Poppins-Regular',
   },
   btnOutLinePrimary: {
     borderColor: '#407BFF',
@@ -90,7 +89,7 @@ export const globalStyles = StyleSheet.create({
     elevation: 3,
   },
   boxPrimary: {
-    backgroundColor: 'rgba(130, 156, 208, 0.15)',
+    backgroundColor: 'rgba(130, 156, 208, 0.1)',
     borderRadius: 8,
     padding: 20,
     marginBottom: 20,
@@ -105,12 +104,11 @@ export const globalStyles = StyleSheet.create({
   boxTitle: {
     color: '#407BFF',
     fontSize: 14,
-    fontFamily: 'OpenSans-Semibold',
   },
   boxSubTitle: {
     color: '#3F3F3F',
     fontSize: 12,
-    fontFamily: 'OpenSans-Regular',
+    opacity: 0.7,
   },
   textWrap: {
     flexDirection: 'column',
@@ -136,16 +134,13 @@ export const globalStyles = StyleSheet.create({
   textPrimary: {
     color: '#407BFF',
     fontSize: 14,
-    fontFamily: 'Poppins-SemiBold',
   },
   textSecondary: {
-    fontFamily: 'Poppins-SemiBold',
     fontWeight: 'bold',
     fontSize: 14,
     color: '#233258',
   },
   textAlternative: {
-    fontFamily: 'Poppins-Regular',
     opacity: 0.4,
     fontSize: 12,
   },
@@ -179,15 +174,15 @@ export const globalStyles = StyleSheet.create({
   },
   inputError: {
     backgroundColor: 'rgba(249, 104, 106, .3)',
-    color: 'red',
+    color: 'rgba(249, 104, 106, 1)',
   },
-});
+})
 
 // Device Size
 export const deviceSize = {
   deviceWidth: Dimensions.get('window').width,
   deviceHeight: Dimensions.get('window').height,
-};
+}
 
 // Stack Screen Options Style
 export const screenOptionStyles = {
@@ -203,4 +198,4 @@ export const screenOptionStyles = {
   },
   headerTitleAlign: 'center',
   headerBackImage: () => <ArrowLeft />,
-};
+}
