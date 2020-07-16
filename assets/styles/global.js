@@ -1,15 +1,14 @@
-import React from "react"
-import { StyleSheet, Dimensions } from "react-native"
+import React from 'react';
+import { StyleSheet, Dimensions } from 'react-native';
 
 // SVG
-import ArrowLeft from "@imgs/ArrowLeft.svg"
+import ArrowLeft from '@imgs/ArrowLeft.svg';
 
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    flexDirection: "column",
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
 
   // Margins
@@ -41,47 +40,47 @@ export const globalStyles = StyleSheet.create({
 
   // Buttons
   btn: {
-    backgroundColor: "rgba(64, 123, 255, 1)",
+    backgroundColor: 'rgba(64, 123, 255, 1)',
     height: 40,
     borderRadius: 6,
   },
   btnText: {
     marginTop: 8,
-    fontFamily: "Poppins-SemiBold",
-    textAlign: "center",
-    color: "#fff",
+    fontFamily: 'Poppins-SemiBold',
+    textAlign: 'center',
+    color: '#fff',
   },
   btnOutLine: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
     padding: 20,
-    borderColor: "#000",
+    borderColor: '#000',
     borderRadius: 6,
     paddingVertical: 10,
   },
   btnOutLineText: {
-    color: "#000",
+    color: '#000',
     fontSize: 12,
-    fontFamily: "Poppins-Regular",
+    fontFamily: 'Poppins-Regular',
   },
   btnOutLinePrimary: {
-    borderColor: "#407BFF",
+    borderColor: '#407BFF',
   },
   btnOutLineTextPrimary: {
-    color: "#407BFF",
+    color: '#407BFF',
   },
   btnLoading: {
-    backgroundColor: "rgba(64, 123, 255, .5)",
+    backgroundColor: 'rgba(64, 123, 255, .5)',
   },
 
   // Boxes
   box: {
-    resizeMode: "cover",
-    backgroundColor: "#fff",
+    resizeMode: 'cover',
+    backgroundColor: '#fff',
     borderRadius: 8,
-    shadowColor: "#829CD0",
+    shadowColor: '#829CD0',
     shadowOpacity: 2,
     shadowRadius: 0,
     shadowOffset: { width: 3, height: 3 },
@@ -91,115 +90,117 @@ export const globalStyles = StyleSheet.create({
     elevation: 3,
   },
   boxPrimary: {
-    backgroundColor: "rgba(130, 156, 208, 0.15)",
+    backgroundColor: 'rgba(130, 156, 208, 0.15)',
     borderRadius: 8,
     padding: 20,
     marginBottom: 20,
   },
   boxBody: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   boxCheckBoxInput: {
     marginRight: 10,
   },
   boxTitle: {
-    color: "#407BFF",
+    color: '#407BFF',
     fontSize: 14,
-    fontFamily: "OpenSans-Semibold",
+    fontFamily: 'OpenSans-Semibold',
   },
   boxSubTitle: {
-    color: "#3F3F3F",
+    color: '#3F3F3F',
     fontSize: 12,
-    fontFamily: "OpenSans-Regular",
+    fontFamily: 'OpenSans-Regular',
   },
   textWrap: {
-    flexDirection: "column",
+    flexDirection: 'column',
     flex: 0.9,
   },
 
   // Badges
   badge: {
-    backgroundColor: "#000",
+    backgroundColor: '#000',
     borderRadius: 12,
     paddingHorizontal: 10,
     paddingVertical: 3,
-    color: "#fff",
-    fontFamily: "Poppins-Medium",
-    textAlign: "center",
+    color: '#fff',
+    fontFamily: 'Poppins-Medium',
+    textAlign: 'center',
     fontSize: 10,
   },
   badgePrimary: {
-    backgroundColor: "#79A2FF",
+    backgroundColor: '#79A2FF',
   },
 
   // Text
   textPrimary: {
-    color: "#407BFF",
+    color: '#407BFF',
     fontSize: 14,
-    fontFamily: "Poppins-SemiBold",
+    fontFamily: 'Poppins-SemiBold',
   },
   textSecondary: {
-    fontFamily: "Poppins-SemiBold",
-    fontWeight: "bold",
+    fontFamily: 'Poppins-SemiBold',
+    fontWeight: 'bold',
     fontSize: 14,
-    color: "#233258",
+    color: '#233258',
   },
   textAlternative: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: 'Poppins-Regular',
     opacity: 0.4,
     fontSize: 12,
   },
 
   // Modals
   closeModalIcon: {
-    color: "#3F3F3F",
-    marginLeft: "auto",
+    color: '#3F3F3F',
+    marginLeft: 'auto',
   },
 
   // Inputs
+  inputGroup: {
+    marginBottom: 15,
+  },
   input: {
-    fontFamily: "Poppins-Regular",
-    flex: 1,
+    fontFamily: 'Poppins-Regular',
+    width: '100%',
     height: 40,
     paddingVertical: 5,
     paddingHorizontal: 50,
     fontSize: 12,
-    marginBottom: 15,
-    backgroundColor: "#F0F5FF",
+    backgroundColor: '#F0F5FF',
     borderRadius: 6,
     opacity: 0.8,
   },
   inputIcon: {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 1,
     marginLeft: 20,
     marginTop: 10,
   },
   inputError: {
-    backgroundColor: "rgba(249, 104, 106, .3)",
-    color: "red",
+    backgroundColor: 'rgba(249, 104, 106, .3)',
+    color: 'red',
   },
-})
+});
 
 // Device Size
 export const deviceSize = {
-  deviceWidth: Dimensions.get("window").width,
-  deviceHeight: Dimensions.get("window").height,
-}
+  deviceWidth: Dimensions.get('window').width,
+  deviceHeight: Dimensions.get('window').height,
+};
 
 // Stack Screen Options Style
 export const screenOptionStyles = {
-  headerTintColor: "#3F3F3F",
+  headerTintColor: '#3F3F3F',
   headerTitleStyle: {
     fontSize: 18,
-    fontFamily: "Poppins-Medium",
+    fontFamily: 'Poppins-Medium',
   },
   headerStyle: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     elevation: 0,
     shadowOpacity: 0,
   },
-  headerTitleAlign: "center",
+  headerTitleAlign: 'center',
   headerBackImage: () => <ArrowLeft />,
-}
+};
